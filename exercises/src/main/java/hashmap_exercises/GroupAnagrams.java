@@ -1,16 +1,19 @@
 package hashmap_exercises;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * LeetCode 49 - Group Anagrams
- *
+ * <p>
  * Given an array of strings strs, group the anagrams together.
  * You can return the answer in any order.
- *
+ * <p>
  * Example:
- * Input:  ["eat","tea","tan","ate","nat","bat"]
+ * Input: ["eat","tea","tan","ate","nat","bat"]
  * Output: [["bat"],["nat","tan"],["ate","eat","tea"]] (order may vary)
  */
 public class GroupAnagrams {
@@ -27,7 +30,17 @@ public class GroupAnagrams {
         // - For each string, sort its characters to get a "canonical form"
         // - Use a Map<String, List<String>>: canonicalForm -> list of words
         // - Return the map's values as the result
-        return Collections.emptyList();
+        if (strs == null || strs.length == 0) {
+            return Collections.emptyList();
+        }
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            char[] chars = str.toCharArray();
+            java.util.Arrays.sort(chars);
+            String key = new String(chars);
+            List<String> words = map.computeIfAbsent(key, k -> new ArrayList<>());
+            words.add(str);
+        }
+        return new ArrayList<>(map.values());
     }
 }
-
