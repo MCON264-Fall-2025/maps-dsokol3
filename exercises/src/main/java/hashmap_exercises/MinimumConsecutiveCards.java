@@ -31,7 +31,7 @@ public class MinimumConsecutiveCards {
         //     then update lastIndexSeen for this cardValue to i
         // - If you never update the answer, return -1
          Map<Integer, Integer> map = new HashMap<>();
-         int minLength = 1000;
+         int minLength = Integer.MAX_VALUE;
          for (int i = 0; i < cards.length; i++) {
              if (map.containsKey(cards[i])) {
                  int prevIndex = map.get(cards[i]);
@@ -39,6 +39,6 @@ public class MinimumConsecutiveCards {
              }
              map.put(cards[i], i);
          }
-         return minLength == 1000 ? -1 : minLength;
+         return minLength == Integer.MAX_VALUE ? -1 : minLength;
      }
 }

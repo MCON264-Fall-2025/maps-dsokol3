@@ -18,8 +18,6 @@ import java.util.Map;
  */
 public class GroupAnagrams {
 
-    private boolean add;
-
     /**
      * Groups the given words into lists of anagrams.
      *
@@ -40,14 +38,8 @@ public class GroupAnagrams {
             char[] chars = str.toCharArray();
             java.util.Arrays.sort(chars);
             String key = new String(chars);
-            List<String> words;
-            if (map.containsKey(key)) {
-                words = map.get(key);
-            } else {
-                words = new ArrayList<>();
-            }
+            List<String> words = map.computeIfAbsent(key, k -> new ArrayList<>());
             words.add(str);
-            map.put(key, words);
         }
         return new ArrayList<>(map.values());
     }
