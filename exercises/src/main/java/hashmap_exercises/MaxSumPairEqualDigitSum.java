@@ -42,8 +42,7 @@ public class MaxSumPairEqualDigitSum {
         // - Return answer.
         Map<Integer, Integer> map = new HashMap<>();
         int maxSum = -1;
-        for (int i = 0; i < nums.length; i++) {
-            int num = nums[i];
+        for (int num : nums) {
             int key = digitSum(num);
             if (map.containsKey(key)) {
                 int prev = map.get(key);
