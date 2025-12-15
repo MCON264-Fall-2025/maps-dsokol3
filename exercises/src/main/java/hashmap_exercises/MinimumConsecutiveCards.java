@@ -35,7 +35,7 @@ public class MinimumConsecutiveCards {
          for (int i = 0; i < cards.length; i++) {
              if (map.containsKey(cards[i])) {
                  int prevIndex = map.get(cards[i]);
-                minLength = Math.min(minLength, i - prevIndex + 1);
+                 minLength = Math.min(minLength, i - prevIndex + 1);
              }
              map.put(cards[i], i);
          }
