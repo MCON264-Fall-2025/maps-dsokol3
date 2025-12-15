@@ -1,6 +1,7 @@
 package hashmap_exercises;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  * LeetCode 2260 - Minimum Consecutive Cards to Pick Up
